@@ -87,8 +87,13 @@ class GitHub {
                     if let dataString = String(data: data, encoding: .utf8) {
                         print(dataString)
                         
+                        if UserDefaults.standard.save(accessToken: dataString) { print("Saved successfully") }
+                            
+                        
+                        
                         complete(success: true)
                     }
+                    
                     
                     
                     

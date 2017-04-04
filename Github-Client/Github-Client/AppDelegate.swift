@@ -22,11 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
        
         let code = try? GitHub.shared.getCodeFrom(url: url)
-        
         print(code)
         
-        GitHub.shared.tokenRequestFor(url: url, saveOptions: .userDefaults) { (success) in
+        let token = UserDefaults.standard.getAccessToken()
         
+        GitHub.shared.tokenRequestFor(url: url, saveOptions: .userDefaults) { (success) in
             if success {
                 print("Yay success with access token retreival")
             } else {
@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
         }
-        
         
         return true
     }
