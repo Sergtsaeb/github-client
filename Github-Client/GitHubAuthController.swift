@@ -17,12 +17,12 @@ class GitHubAuthController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        hasToken()
+        updateButton()
     }
     
     @IBOutlet weak var loginButton: UIButton!
     
-    func hasToken() {
+    func updateButton() {
         if UserDefaults.standard.getAccessToken() == nil {
             print("Please log in.")
             loginButton.isEnabled = true
@@ -41,7 +41,7 @@ class GitHubAuthController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        hasToken()
+        updateButton()
         let parameters = ["scope":"email,user"]
         GitHub.shared.oAuthRequestWith(parameters: parameters)
         

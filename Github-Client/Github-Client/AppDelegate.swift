@@ -24,8 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let code = try? GitHub.shared.getCodeFrom(url: url)
         print(code)
         
-        let token = UserDefaults.standard.getAccessToken()
-        
+        if let token = UserDefaults.standard.getAccessToken() {
+            print("Authenticated already")
+        } else {
         GitHub.shared.tokenRequestFor(url: url, saveOptions: .userDefaults) { (success) in
             if success {
                 print("Yay success with access token retreival")
@@ -34,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
         }
+    }
         
         return true
     }
