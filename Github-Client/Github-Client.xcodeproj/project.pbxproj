@@ -15,6 +15,9 @@
 		C026CF711E92CE63003B384A /* GitHubAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF701E92CE63003B384A /* GitHubAuthController.swift */; };
 		C026CF731E92EC1C003B384A /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF721E92EC1C003B384A /* FoundationExtensions.swift */; };
 		C026CF751E933719003B384A /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF741E933719003B384A /* Keys.swift */; };
+		C026CF771E940C26003B384A /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF761E940C26003B384A /* RepoViewController.swift */; };
+		C026CF791E940D80003B384A /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF781E940D80003B384A /* UIExtensions.swift */; };
+		C026CF7B1E94196A003B384A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF7A1E94196A003B384A /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		C026CF701E92CE63003B384A /* GitHubAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubAuthController.swift; path = ../GitHubAuthController.swift; sourceTree = "<group>"; };
 		C026CF721E92EC1C003B384A /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		C026CF741E933719003B384A /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		C026CF761E940C26003B384A /* RepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
+		C026CF781E940D80003B384A /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		C026CF7A1E94196A003B384A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,7 @@
 			children = (
 				C026CF591E92B1FE003B384A /* AppDelegate.swift */,
 				C026CF6B1E92C922003B384A /* GitHub.swift */,
+				C026CF7A1E94196A003B384A /* Repository.swift */,
 				C026CF741E933719003B384A /* Keys.swift */,
 			);
 			name = Model;
@@ -91,7 +98,9 @@
 		C026CF6F1E92C950003B384A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C026CF761E940C26003B384A /* RepoViewController.swift */,
 				C026CF701E92CE63003B384A /* GitHubAuthController.swift */,
+				C026CF781E940D80003B384A /* UIExtensions.swift */,
 				C026CF721E92EC1C003B384A /* FoundationExtensions.swift */,
 			);
 			name = Controller;
@@ -171,7 +180,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C026CF731E92EC1C003B384A /* FoundationExtensions.swift in Sources */,
+				C026CF791E940D80003B384A /* UIExtensions.swift in Sources */,
 				C026CF6C1E92C922003B384A /* GitHub.swift in Sources */,
+				C026CF7B1E94196A003B384A /* Repository.swift in Sources */,
+				C026CF771E940C26003B384A /* RepoViewController.swift in Sources */,
 				C026CF711E92CE63003B384A /* GitHubAuthController.swift in Sources */,
 				C026CF5A1E92B1FE003B384A /* AppDelegate.swift in Sources */,
 				C026CF751E933719003B384A /* Keys.swift in Sources */,
@@ -338,6 +350,7 @@
 				C026CF6A1E92B1FE003B384A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
