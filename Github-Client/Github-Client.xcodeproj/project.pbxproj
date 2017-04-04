@@ -14,6 +14,7 @@
 		C026CF6C1E92C922003B384A /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF6B1E92C922003B384A /* GitHub.swift */; };
 		C026CF711E92CE63003B384A /* GitHubAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF701E92CE63003B384A /* GitHubAuthController.swift */; };
 		C026CF731E92EC1C003B384A /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF721E92EC1C003B384A /* FoundationExtensions.swift */; };
+		C026CF751E933719003B384A /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF741E933719003B384A /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C026CF6B1E92C922003B384A /* GitHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
 		C026CF701E92CE63003B384A /* GitHubAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubAuthController.swift; path = ../GitHubAuthController.swift; sourceTree = "<group>"; };
 		C026CF721E92EC1C003B384A /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
+		C026CF741E933719003B384A /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,7 @@
 			children = (
 				C026CF591E92B1FE003B384A /* AppDelegate.swift */,
 				C026CF6B1E92C922003B384A /* GitHub.swift */,
-				C026CF721E92EC1C003B384A /* FoundationExtensions.swift */,
+				C026CF741E933719003B384A /* Keys.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				C026CF701E92CE63003B384A /* GitHubAuthController.swift */,
+				C026CF721E92EC1C003B384A /* FoundationExtensions.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				C026CF6C1E92C922003B384A /* GitHub.swift in Sources */,
 				C026CF711E92CE63003B384A /* GitHubAuthController.swift in Sources */,
 				C026CF5A1E92B1FE003B384A /* AppDelegate.swift in Sources */,
+				C026CF751E933719003B384A /* Keys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

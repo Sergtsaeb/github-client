@@ -60,6 +60,9 @@
                             <constraint firstItem="ozq-f9-2tB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rVS-Eb-bkf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="ozq-f9-2tB" id="gmG-Ol-jxF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

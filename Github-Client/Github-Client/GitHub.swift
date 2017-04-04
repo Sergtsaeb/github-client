@@ -24,8 +24,6 @@ enum SaveOptions {
 
 class GitHub {
     
-    let gitHubClientID = "093127d49989d6ed7f3d"
-    let gitHubClientSecret = "123cfcf6955d82f482213c4299ee5dc986c867cb"
 
     static let shared = GitHub() //make singleton
     
@@ -42,7 +40,7 @@ class GitHub {
         
         //builds the whole url, the domain with a little bit of the URI
         //taking urls string and converting it to a URI, passing in the required client ID parameter at this endpoint
-        if let requestURL = URL(string: "\(kOAuthBaseURLString)authorize?client_id=\(gitHubClientID)\(parametersString)") {
+        if let requestURL = URL(string: "\(kOAuthBaseURLString)authorize?client_id=\(kGitHubClientID)\(parametersString)") {
             
             print(requestURL.absoluteString)
             
@@ -71,7 +69,7 @@ class GitHub {
         do {
             let code = try self.getCodeFrom(url: url)
             
-            let requestString = "\(kOAuthBaseURLString)access_token?client_id=\(gitHubClientID)&client_secret=\(gitHubClientSecret)&code=\(code)"
+            let requestString = "\(kOAuthBaseURLString)access_token?client_id=\(kGitHubClientID)&client_secret=\(kGitHubClientSecret)&code=\(code)"
             //get string format from the docs
             
             if let requestURL = URL(string: requestString) {
@@ -87,8 +85,11 @@ class GitHub {
                     if let dataString = String(data: data, encoding: .utf8) {
                         print(dataString)
                         
+                        if UserDefaults.standard.save(accessToken: dataString) { print("Saved successfully") }
+                            
                         complete(success: true)
                     }
+                    
                     
                     
                     
