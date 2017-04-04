@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(code)
         
         if let token = UserDefaults.standard.getAccessToken() {
-            print("Authenticated already")
+            print("Authenticated already with token: \(token)")
         } else {
         GitHub.shared.tokenRequestFor(url: url, saveOptions: .userDefaults) { (success) in
             if success {

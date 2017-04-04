@@ -24,7 +24,7 @@ enum SaveOptions {
 
 class GitHub {
     
-
+    
     static let shared = GitHub() //make singleton
     
     //takes in parameters to be able to see the oAuth
@@ -59,7 +59,6 @@ class GitHub {
     }
     
     func tokenRequestFor(url: URL, saveOptions: SaveOptions, completion: @escaping GitHubOAuthCompletion) {
-        
         func complete(success: Bool) {
             OperationQueue.main.addOperation { //returns on main queue with completion
                 completion(success)
@@ -86,7 +85,7 @@ class GitHub {
                         print(dataString)
                         
                         if UserDefaults.standard.save(accessToken: dataString) { print("Saved successfully") }
-                            
+                        
                         complete(success: true)
                     }
                     
@@ -102,6 +101,6 @@ class GitHub {
         }
     }
     
-   
+    
 }
 
