@@ -18,6 +18,7 @@
 		C026CF771E940C26003B384A /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF761E940C26003B384A /* RepoViewController.swift */; };
 		C026CF791E940D80003B384A /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF781E940D80003B384A /* UIExtensions.swift */; };
 		C026CF7B1E94196A003B384A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF7A1E94196A003B384A /* Repository.swift */; };
+		C026CF7F1E946BF2003B384A /* RepoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF7E1E946BF2003B384A /* RepoTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C026CF761E940C26003B384A /* RepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
 		C026CF781E940D80003B384A /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		C026CF7A1E94196A003B384A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		C026CF7E1E946BF2003B384A /* RepoTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepoTableCell.swift; path = ../RepoTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				C026CF761E940C26003B384A /* RepoViewController.swift */,
+				C026CF7E1E946BF2003B384A /* RepoTableCell.swift */,
 				C026CF701E92CE63003B384A /* GitHubAuthController.swift */,
 				C026CF781E940D80003B384A /* UIExtensions.swift */,
 				C026CF721E92EC1C003B384A /* FoundationExtensions.swift */,
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C026CF731E92EC1C003B384A /* FoundationExtensions.swift in Sources */,
+				C026CF7F1E946BF2003B384A /* RepoTableCell.swift in Sources */,
 				C026CF791E940D80003B384A /* UIExtensions.swift in Sources */,
 				C026CF6C1E92C922003B384A /* GitHub.swift in Sources */,
 				C026CF7B1E94196A003B384A /* Repository.swift in Sources */,

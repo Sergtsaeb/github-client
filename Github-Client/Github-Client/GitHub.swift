@@ -139,9 +139,8 @@ class GitHub {
         self.session.dataTask(with: url) { (data, response, error) in
             
             if error != nil {returnToMain(results: nil);return}
-            
+
             if let data = data {
-                
                 var repositories = [Repository]()
                 
                 do {
@@ -154,15 +153,11 @@ class GitHub {
                                 
                             }
                         }
-                        
                         returnToMain(results: repositories)
-                        
                     }
-                    
                 } catch {
                     
                 }
-                
             }
             
         }.resume()

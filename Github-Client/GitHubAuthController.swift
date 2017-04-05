@@ -35,10 +35,6 @@ class GitHubAuthController: UIViewController {
         
     }
     
-    @IBAction func printTokenPressed(_ sender: Any) {
-        
-        print("\(String(describing: UserDefaults.standard.getAccessToken()))")
-    }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         let parameters = ["scope":"email,user,repo"]
