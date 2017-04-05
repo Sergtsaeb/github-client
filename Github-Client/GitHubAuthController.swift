@@ -12,7 +12,7 @@ class GitHubAuthController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,16 +35,17 @@ class GitHubAuthController: UIViewController {
         
     }
     
-
-    @IBAction func printTokenPressed(_ sender: Any) {
+    
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        let parameters = ["scope":"email,user,repo"]
+        GitHub.shared.oAuthRequestWith(parameters: parameters)
+    }
+    
+    func dismissAuthController() {
+        self.view.removeFromSuperview()
+        self.removeFromParentViewController()
         
     }
     
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        updateButton()
-        let parameters = ["scope":"email,user"]
-        GitHub.shared.oAuthRequestWith(parameters: parameters)
-        
-    }
     
 }
