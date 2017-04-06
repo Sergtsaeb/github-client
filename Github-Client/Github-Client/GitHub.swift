@@ -30,6 +30,9 @@ class GitHub {
     
     static let shared = GitHub() //make singleton
     
+    let gitHubClientID = kGitHubClientID
+    let gitHubClientSecret = kGitHubClientSecret
+    
     private init() {
         
         self.session = URLSession(configuration: .default)
@@ -38,10 +41,7 @@ class GitHub {
         self.components.scheme = "https"
         self.components.host = "api.github.com"
         
-        if let token = UserDefaults.standard.getAccessToken() {
-            let queryItem = URLQueryItem(name: "access_token", value: token)
-            self.components.queryItems = [queryItem]
-        }
+        
         
     }
     
@@ -58,7 +58,7 @@ class GitHub {
         
         //builds the whole url, the domain with a little bit of the URI
         //taking urls string and converting it to a URI, passing in the required client ID parameter at this endpoint
-        if let requestURL = URL(string: "\(kOAuthBaseURLString)authorize?client_id=\(kGitHubClientID)\(parametersString)") {
+        if let requestURL = URL(string: "\(kOAuthBaseURLString)authorize?client_id=\(gitHubClientID)\(parametersString)") {
             
             print(requestURL.absoluteString)
             
@@ -86,7 +86,7 @@ class GitHub {
         do {
             let code = try self.getCodeFrom(url: url)
             
-            let requestString = "\(kOAuthBaseURLString)access_token?client_id=\(kGitHubClientID)&client_secret=\(kGitHubClientSecret)&code=\(code)"
+            let requestString = "\(kOAuthBaseURLString)access_token?client_id=\(gitHubClientID)&client_secret=\(gitHubClientSecret)&code=\(code)"
             //get string format from the docs
             
             if let requestURL = URL(string: requestString) {
@@ -134,23 +134,29 @@ class GitHub {
         
         self.components.path = "/user/repos"
         
+        if let token = UserDefaults.standard.getAccessToken() {
+            let queryItem = URLQueryItem(name: "access_token", value: token)
+            self.components.queryItems = [queryItem]
+        }
+        
         guard let url = self.components.url else { returnToMain(results: nil); return }
         
         self.session.dataTask(with: url) { (data, response, error) in
             
-            if error != nil {returnToMain(results: nil);return}
+            if error != nil {returnToMain(results: nil); return}
 
             if let data = data {
                 var repositories = [Repository]()
                 
                 do {
                     if let rootJson = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String:Any]] {
-                        print(rootJson)
                         
-                        for repositoryJSON in rootJson {
-                            if let repo = Repository(json: repositoryJSON){
+                        
+                        
+                        for value in rootJson {
+                            if let repo = Repository(json: value){
                                 repositories.append(repo)
-                                
+                                print(repo.name)
                             }
                         }
                         returnToMain(results: repositories)
