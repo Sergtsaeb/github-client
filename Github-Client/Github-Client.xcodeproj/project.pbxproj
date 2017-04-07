@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C001BD6B1E96B355006CE6E4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C001BD6A1E96B355006CE6E4 /* WebViewController.swift */; };
 		C026CF5A1E92B1FE003B384A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF591E92B1FE003B384A /* AppDelegate.swift */; };
 		C026CF5F1E92B1FE003B384A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C026CF5D1E92B1FE003B384A /* Main.storyboard */; };
 		C026CF611E92B1FE003B384A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C026CF601E92B1FE003B384A /* Assets.xcassets */; };
@@ -18,10 +19,15 @@
 		C026CF771E940C26003B384A /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF761E940C26003B384A /* RepoViewController.swift */; };
 		C026CF791E940D80003B384A /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF781E940D80003B384A /* UIExtensions.swift */; };
 		C026CF7B1E94196A003B384A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF7A1E94196A003B384A /* Repository.swift */; };
-		C026CF7F1E946BF2003B384A /* RepoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF7E1E946BF2003B384A /* RepoTableCell.swift */; };
+		C026CF811E956AEE003B384A /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF801E956AEE003B384A /* NetworkEngine.swift */; };
+		C026CF831E956EBB003B384A /* RepoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF821E956EBB003B384A /* RepoDetailViewController.swift */; };
+		C026CF8A1E95A7BD003B384A /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF881E95A7BD003B384A /* RepositoryCell.swift */; };
+		C026CF8B1E95A7BD003B384A /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C026CF891E95A7BD003B384A /* RepositoryCell.xib */; };
+		C026CF8D1E95DA06003B384A /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026CF8C1E95DA06003B384A /* CustomTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C001BD6A1E96B355006CE6E4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		C026CF561E92B1FE003B384A /* Github-Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C026CF591E92B1FE003B384A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C026CF5E1E92B1FE003B384A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,7 +41,11 @@
 		C026CF761E940C26003B384A /* RepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
 		C026CF781E940D80003B384A /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		C026CF7A1E94196A003B384A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		C026CF7E1E946BF2003B384A /* RepoTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepoTableCell.swift; path = ../RepoTableCell.swift; sourceTree = "<group>"; };
+		C026CF801E956AEE003B384A /* NetworkEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
+		C026CF821E956EBB003B384A /* RepoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepoDetailViewController.swift; path = ../RepoDetailViewController.swift; sourceTree = "<group>"; };
+		C026CF881E95A7BD003B384A /* RepositoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryCell.swift; path = ../RepositoryCell.swift; sourceTree = "<group>"; };
+		C026CF891E95A7BD003B384A /* RepositoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RepositoryCell.xib; path = ../RepositoryCell.xib; sourceTree = "<group>"; };
+		C026CF8C1E95DA06003B384A /* CustomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +93,11 @@
 				C026CF591E92B1FE003B384A /* AppDelegate.swift */,
 				C026CF6B1E92C922003B384A /* GitHub.swift */,
 				C026CF7A1E94196A003B384A /* Repository.swift */,
+				C026CF881E95A7BD003B384A /* RepositoryCell.swift */,
+				C026CF891E95A7BD003B384A /* RepositoryCell.xib */,
 				C026CF741E933719003B384A /* Keys.swift */,
+				C026CF781E940D80003B384A /* UIExtensions.swift */,
+				C026CF801E956AEE003B384A /* NetworkEngine.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -100,11 +114,12 @@
 		C026CF6F1E92C950003B384A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C026CF761E940C26003B384A /* RepoViewController.swift */,
-				C026CF7E1E946BF2003B384A /* RepoTableCell.swift */,
 				C026CF701E92CE63003B384A /* GitHubAuthController.swift */,
-				C026CF781E940D80003B384A /* UIExtensions.swift */,
+				C026CF761E940C26003B384A /* RepoViewController.swift */,
+				C026CF821E956EBB003B384A /* RepoDetailViewController.swift */,
+				C001BD6A1E96B355006CE6E4 /* WebViewController.swift */,
 				C026CF721E92EC1C003B384A /* FoundationExtensions.swift */,
+				C026CF8C1E95DA06003B384A /* CustomTransition.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -172,6 +187,7 @@
 				C026CF641E92B1FE003B384A /* LaunchScreen.storyboard in Resources */,
 				C026CF611E92B1FE003B384A /* Assets.xcassets in Resources */,
 				C026CF5F1E92B1FE003B384A /* Main.storyboard in Resources */,
+				C026CF8B1E95A7BD003B384A /* RepositoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,13 +199,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C026CF731E92EC1C003B384A /* FoundationExtensions.swift in Sources */,
-				C026CF7F1E946BF2003B384A /* RepoTableCell.swift in Sources */,
 				C026CF791E940D80003B384A /* UIExtensions.swift in Sources */,
 				C026CF6C1E92C922003B384A /* GitHub.swift in Sources */,
+				C026CF8A1E95A7BD003B384A /* RepositoryCell.swift in Sources */,
 				C026CF7B1E94196A003B384A /* Repository.swift in Sources */,
+				C026CF831E956EBB003B384A /* RepoDetailViewController.swift in Sources */,
 				C026CF771E940C26003B384A /* RepoViewController.swift in Sources */,
+				C026CF8D1E95DA06003B384A /* CustomTransition.swift in Sources */,
+				C026CF811E956AEE003B384A /* NetworkEngine.swift in Sources */,
 				C026CF711E92CE63003B384A /* GitHubAuthController.swift in Sources */,
 				C026CF5A1E92B1FE003B384A /* AppDelegate.swift in Sources */,
+				C001BD6B1E96B355006CE6E4 /* WebViewController.swift in Sources */,
 				C026CF751E933719003B384A /* Keys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

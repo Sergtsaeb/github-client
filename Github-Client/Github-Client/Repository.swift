@@ -9,21 +9,32 @@
 import Foundation
 
 class Repository {
-    
+   
     let name: String
-    let description: String?
+    let description: String
     let language: String?
+    var numStars: Int? = 0
+    let isForked: Bool
+    let createDate: String
+    let repoUrlString: String
     
-    init?(json: [String:Any]) {
+    init?(json: [String: Any]) {
         
-                guard let name = json["name"] as? String else { return nil }
-                let description = json["description"] as? String
-                let language = json["language"] as? String
-                
-                self.name = name
-                self.description = description
-                self.language = language
+        self.name = json["name"] as! String
+        self.description = json["description"] as? String ?? "No description"
+        self.language = json["language"] as? String
         
+        if let numStar = json["stargazers_count"] as? Int {
+            self.numStars = numStar
         }
-    }
+        
+        
+        self.isForked = json["fork"] as! Bool
+        self.createDate = json["created_at"] as! String
+        
+        self.repoUrlString = json["html_url"] as? String ?? "https://github.com"
+ 
     
+    }
+}
+
