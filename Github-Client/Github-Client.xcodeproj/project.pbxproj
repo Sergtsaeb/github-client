@@ -78,9 +78,9 @@
 		C026CF581E92B1FE003B384A /* Github-Client */ = {
 			isa = PBXGroup;
 			children = (
-				C026CF6E1E92C948003B384A /* View */,
 				C026CF6F1E92C950003B384A /* Controller */,
 				C026CF6D1E92C943003B384A /* Model */,
+				C026CF6E1E92C948003B384A /* View */,
 				C026CF601E92B1FE003B384A /* Assets.xcassets */,
 				C026CF651E92B1FE003B384A /* Info.plist */,
 			);
@@ -90,11 +90,9 @@
 		C026CF6D1E92C943003B384A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C026CF591E92B1FE003B384A /* AppDelegate.swift */,
-				C026CF6B1E92C922003B384A /* GitHub.swift */,
 				C026CF7A1E94196A003B384A /* Repository.swift */,
-				C026CF881E95A7BD003B384A /* RepositoryCell.swift */,
-				C026CF891E95A7BD003B384A /* RepositoryCell.xib */,
+				C026CF6B1E92C922003B384A /* GitHub.swift */,
+				C026CF591E92B1FE003B384A /* AppDelegate.swift */,
 				C026CF741E933719003B384A /* Keys.swift */,
 				C026CF781E940D80003B384A /* UIExtensions.swift */,
 				C026CF801E956AEE003B384A /* NetworkEngine.swift */,
@@ -107,6 +105,8 @@
 			children = (
 				C026CF5D1E92B1FE003B384A /* Main.storyboard */,
 				C026CF621E92B1FE003B384A /* LaunchScreen.storyboard */,
+				C026CF881E95A7BD003B384A /* RepositoryCell.swift */,
+				C026CF891E95A7BD003B384A /* RepositoryCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 				TargetAttributes = {
 					C026CF551E92B1FE003B384A = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = KAQ72YLS2D;
+						DevelopmentTeam = P42QZ5498J;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -333,8 +333,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KAQ72YLS2D;
+				DEVELOPMENT_TEAM = P42QZ5498J;
 				INFOPLIST_FILE = "Github-Client/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sergtsaeb.Github-Client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -346,8 +347,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KAQ72YLS2D;
+				DEVELOPMENT_TEAM = P42QZ5498J;
 				INFOPLIST_FILE = "Github-Client/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sergtsaeb.Github-Client";
 				PRODUCT_NAME = "$(TARGET_NAME)";

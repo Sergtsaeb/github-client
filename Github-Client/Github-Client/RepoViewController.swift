@@ -29,7 +29,6 @@ class RepoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         update()
         
         let repoNib = UINib(nibName: RepositoryCell.identifier, bundle: Bundle.main)
@@ -46,7 +45,7 @@ class RepoViewController: UIViewController {
     
     func update() {
         GitHub.shared.getRepos { (repositories) in
-        
+            
             if let repositories = repositories {
                 self.allRepos = repositories
             }
@@ -84,10 +83,7 @@ extension RepoViewController: UIViewControllerTransitioningDelegate {
 extension RepoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryCell.identifier, for: indexPath) as! RepositoryCell
-        
-        
         
         let repo = allRepos[indexPath.row]
         cell.repoNameLabel.text = repo.name
@@ -128,7 +124,10 @@ extension RepoViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.displayRepos = nil
+        if searchBar.text == "" {
+            self.displayRepos = nil
+            }
+        
         self.searchBar.resignFirstResponder()
     }
     

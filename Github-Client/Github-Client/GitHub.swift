@@ -41,38 +41,36 @@ class GitHub {
         self.components.scheme = "https"
         self.components.host = "api.github.com"
         
-        
+        if let token = UserDefaults.standard.getAccessToken(){
+            let queryItem = URLQueryItem(name: "access_token", value: token)
+            self.components.queryItems = [queryItem]//array insertion
+        }
         
     }
     
     //takes in parameters to be able to see the oAuth
     func oAuthRequestWith(parameters: [String: String]) {
-        var parametersString = ""
+        var parametersString = "" // representation of everything after question mark "?"
         
         // loop over key value pairings in parameter dictionary
         for (key, value) in parameters {
-            parametersString += "&\(key)=\(value)"
+            parametersString += "&\(key)=\(value)" // this is the interpolation of the additions to the parameter string
         }
         
         print("Parameter String: \(parametersString)")
-        
         //builds the whole url, the domain with a little bit of the URI
         //taking urls string and converting it to a URI, passing in the required client ID parameter at this endpoint
-        if let requestURL = URL(string: "\(kOAuthBaseURLString)authorize?client_id=\(gitHubClientID)\(parametersString)") {
-            
+        
+        if let requestURL = URL(string: "\(kOAuthBaseURLString)authorize?client_id=\(kGitHubClientID)\(parametersString)") {
             print(requestURL.absoluteString)
-            
             UIApplication.shared.open(requestURL)
-            
         }
     }
     
     func getCodeFrom(url: URL) throws -> String {
-        
         guard let code = url.absoluteString.components(separatedBy: "=").last else {
             throw GibHubAuthError.extractingCode
         }
-        
         return code
     }
     
@@ -86,7 +84,7 @@ class GitHub {
         do {
             let code = try self.getCodeFrom(url: url)
             
-            let requestString = "\(kOAuthBaseURLString)access_token?client_id=\(gitHubClientID)&client_secret=\(gitHubClientSecret)&code=\(code)"
+            let requestString = "\(kOAuthBaseURLString)access_token?client_id=\(kGitHubClientID)&client_secret=\(kGitHubClientSecret)&code=\(code)"
             //get string format from the docs
             
             if let requestURL = URL(string: requestString) {
@@ -96,24 +94,25 @@ class GitHub {
                 session.dataTask(with: requestURL, completionHandler: { (data, response, error) in
                     
                     if error != nil { complete(success: false) }
-                    
                     guard let data = data else { complete(success: false); return }
                     
                     if let dataString = String(data: data, encoding: .utf8) {
+                        print(dataString)
                         
-                        var token = ""
-                        let components = dataString.components(separatedBy: "&")
-                        
-                        for component in components {
-                            if component.contains("access_token") {
-                                token = component.components(separatedBy: "=").last!
-                                print(token)
-                                complete(success: UserDefaults.standard.save(accessToken: token))
+                        if let token = self.accessTokenFrom(dataString) {
+                            
+                            if UserDefaults.standard.save(accessToken: token) {
+                                print("saved access token")
+                                let queryItem = URLQueryItem(name: "access_token", value: token)
+                                self.components.queryItems = [queryItem]
+                                
                             }
+                            
                         }
+                        
                     }
                     
-                }).resume() //biggest error, need to tell the data task to resume manually or nothing will occur
+                }).resume() //common error, need to tell the data task to resume manually or nothing will occur
             }
             
         } catch {
@@ -134,11 +133,6 @@ class GitHub {
         
         self.components.path = "/user/repos"
         
-        if let token = UserDefaults.standard.getAccessToken() {
-            let queryItem = URLQueryItem(name: "access_token", value: token)
-            self.components.queryItems = [queryItem]
-        }
-        
         guard let url = self.components.url else { returnToMain(results: nil); return }
         
         self.session.dataTask(with: url) { (data, response, error) in
@@ -151,10 +145,8 @@ class GitHub {
                 do {
                     if let rootJson = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String:Any]] {
                         
-                        
-                        
-                        for value in rootJson {
-                            if let repo = Repository(json: value){
+                        for repositoryJSON in rootJson {
+                            if let repo = Repository(json: repositoryJSON){
                                 repositories.append(repo)
                                 print(repo.name)
                             }
@@ -170,5 +162,18 @@ class GitHub {
         
     }
     
+    func accessTokenFrom(_ string: String) -> String? {
+        if string.contains("access_token") {
+            let components = string.components(separatedBy: "&")
+            
+            for component in components{
+                if component.contains("access_token"){
+                    let token = component.components(separatedBy: "=").last
+                    return token
+                }
+            }
+        }
+        return nil
+    }
 }
 
