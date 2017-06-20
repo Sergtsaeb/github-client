@@ -32,9 +32,7 @@ class GitHubAuthController: UIViewController {
             loginButton.isHidden = true
             loginButton.isEnabled = false
         }
-        
     }
-    
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         let parameters = ["scope":"email,user,repo"]
@@ -46,5 +44,6 @@ class GitHubAuthController: UIViewController {
         self.removeFromParentViewController()
         
     }
+
     
 }
